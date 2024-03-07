@@ -1,0 +1,61 @@
+﻿@using MVC_D03.Models.ViewModel
+@model StudentDepertment
+@{
+    ViewData["Title"] = "Create Student";
+    SelectList deptlist = new SelectList(Model.dept, "DeptId", "DeptName");
+}
+
+
+
+    <div class="m-3">
+        @if (Model.std != null)
+        {
+            <div class="alert alert-danger w-50" role="alert">
+                Something went Wrong, Enter Detials again
+            </div>
+        }
+        <h4 class="text-success">Create New Student</h4>
+        <form class="col-lg-3 col-md-5 col-sm-10" method="post">
+            <div class="form-group row mb-2">
+                <label asp-for="std.Name" class=" col-form-label"></label>
+                <div class="">
+                    <input asp-for="std.Name" class="form-control"  >
+                </div>
+            <span class="alert-danger m-2 " asp-validation-for="std.Name"></span>
+                
+            </div>
+            <div class="form-group row mb-2">
+                <label asp-for="std.Age" class=" col-form-label"></label>
+                <div class="">
+                    <input asp-for="std.Age" class="form-control" >
+                </div>
+            <span class="alert-danger m-2 " asp-validation-for="std.Age"></span>
+            </div>
+        <div class="form-group row mb-2">
+            <label asp-for="std.Email" class=" col-form-label"></label>
+            <div class="">
+                <input asp-for="std.Email" class="form-control">
+            </div>
+            <span class="alert-danger m-2  " asp-validation-for="std.Email"></span>
+        </div>
+            
+            <div>
+                <label asp-for="std.DeptNo" class=" col-form-label"></label>
+                <select asp-for="std.DeptNo" asp-items="deptlist" class="form-select" > </select>
+            <span class="alert-danger m-2  " asp-validation-for="std.DeptNo"></span>
+            </div>
+             
+            <div class="form-group row  mt-3 ">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success">create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @* <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script> *@
+}
+    

@@ -1,0 +1,46 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Create Department";
+    
+}
+    <div class="m-3">
+        @if (Model != null )
+        {
+            <div class="alert alert-danger w-50" role="alert">
+                Something went Wrong, Enter Detials again
+            </div>
+        }
+        <h4 class="text-success">Create New Department</h4>
+        <form class="col-lg-3 col-md-5 col-sm-10" method="post" > 
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group row mb-2">
+                <label asp-for="DeptId" class=" col-form-label">ID</label>
+                <div class="">
+                    <input asp-for="DeptId" class="form-control" >
+                </div>
+                <span class="alert-danger m-3" asp-validation-for="DeptId"></span>
+            </div>
+            <div class="form-group row mb-2">
+                <label asp-for="DeptName" class="col-form-label">Name</label>
+                <div class="">
+                    <input  class="form-control" asp-for="DeptName">
+                </div>
+            <span class="alert-danger m-3" asp-validation-for="DeptName"></span>
+            </div>
+
+
+            <div class="form-group row  mt-3 ">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success">create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @* <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script> *@
+}
+
